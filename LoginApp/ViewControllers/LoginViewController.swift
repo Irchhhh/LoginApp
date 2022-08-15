@@ -15,6 +15,12 @@ class LoginViewController: UIViewController {
     let userName = "User"
     let password = "Password"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userNameTF.delegate = self
+        passwordTF.delegate = self
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userName = userName
@@ -33,14 +39,6 @@ class LoginViewController: UIViewController {
     @IBAction func helpPassword(_ sender: Any) {
         showAlert(title: "Your Password", message: "Password")
     }
-    
-  
 }
 
-extension LoginViewController {
-    private func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alertController, animated: true)
-    }
-}
+

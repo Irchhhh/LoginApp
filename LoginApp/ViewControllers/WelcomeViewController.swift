@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     var userName: String!
@@ -17,5 +17,4 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         userNameLabel.text = ("Hello, \(userName ?? "")")
     }
-    
 }
